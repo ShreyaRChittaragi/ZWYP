@@ -16,7 +16,7 @@ export default function ItemDetail() {
   const send = async () => { setErr(''); setBusy(true)
     try { await api.post('/swaps', { target_item_id: item.id, offered_item_id: +offer, note }); nav('/swaps?tab=outgoing') } catch (e) { setErr(errMsg(e)) } finally { setBusy(false) } }
   return <div className="space-y-12"><div className="grid gap-8 md:grid-cols-2">
-    <img src={assetUrl(item.image_url)} alt={item.title} onError={imgFallback} className="aspect-[4/3] w-full rounded-3xl object-cover shadow-lg" />
+    <img src={assetUrl(item.image_url, item.id)} alt={item.title} onError={imgFallback} className="aspect-[4/3] w-full rounded-3xl object-cover shadow-lg" />
     <div className="space-y-5"><div><span className="rounded-full bg-brand/10 px-3 py-1 text-xs font-bold text-brand">{item.category}</span><h1 className="mt-3 text-3xl font-extrabold">{item.title}</h1>
       <div className="mt-2 flex flex-wrap gap-3 text-sm text-ink/60"><span className="flex items-center gap-1"><ShieldCheck size={14} />{item.condition}</span><span className="flex items-center gap-1"><MapPin size={14} />{item.location}</span>{item.value_inr > 0 && <span>Approx. ₹{item.value_inr.toLocaleString('en-IN')}</span>}</div></div>
       <p className="text-ink/80">{item.description}</p>
