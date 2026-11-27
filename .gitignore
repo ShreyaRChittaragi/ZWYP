@@ -1,0 +1,29 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Database and user uploads
+*.db
+*.sqlite3
+backend/uploads/*
+
+# Generated seed illustrations (recreated on backend startup)
+backend/static/
+
+# Node / frontend build
+node_modules/
+frontend/dist/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
